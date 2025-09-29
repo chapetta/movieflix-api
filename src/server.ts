@@ -6,6 +6,8 @@ const port = 3000;
 const app = express();
 const prisma = new PrismaClient;
 
+app.use(express.json());
+
 
 app.get("/movies", async (_req, res) => {
   const movies = await prisma.movie.findMany({
@@ -16,6 +18,23 @@ app.get("/movies", async (_req, res) => {
     }
   });
   res.json(movies);
+});
+
+app.post("/movies", async (req, res) => {
+
+    const { title, release_date, genre_id, language_id, oscar_count } = req.body;
+
+    await prisma.movie.create({
+      data: {
+        title,
+        release_date: new Date(release_date),
+        genre_id,
+        language_id,
+        oscar_count,
+      }
+    });
+
+    res.status(201).send();
 });
 
 app.listen(port, () => {
