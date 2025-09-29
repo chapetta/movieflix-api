@@ -24,6 +24,7 @@
     "typescript-eslint": "^8.45.0"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
     "esbuild": "^0.25.10",
     "express": "^5.1.0",
     "get-tsconfig": "^4.10.1",
