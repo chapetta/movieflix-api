@@ -1,0 +1,99 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Movieflix API",
+    "description": "API responsavel por gerenciar os filmes do movieflix",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/movies": {
+      "get": {
+        "tags": ["Movie"],
+        "summary": "Obter os filmes.",
+        "responses": {
+          "200": {
+            "description": "Retorna uma lista de filmes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Movie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID do filme",
+            "example": 8
+          },
+          "title": {
+            "type": "string",
+            "description": "Título do filme",
+            "example": "Cisne negro"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de lançamento",
+            "example": "2011-02-04T00:00:00.000Z"
+          },
+          "genre_id": {
+            "type": "integer",
+            "description": "ID do gênero relacionado",
+            "example": 5
+          },
+          "language_id": {
+            "type": "integer",
+            "description": "ID do idioma relacionado",
+            "example": 2
+          },
+          "oscar_count": {
+            "type": "integer",
+            "description": "Número de Oscars ganhos",
+            "example": 1
+          },
+          "genres": {
+            "type": "object",
+            "description": "Dados do gênero do filme",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": 5
+              },
+              "name": {
+                "type": "string",
+                "example": "Terror"
+              }
+            }
+          },
+          "languages": {
+            "type": "object",
+            "description": "Dados do idioma do filme",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": 2
+              },
+              "name": {
+                "type": "string",
+                "example": "Inglês"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
