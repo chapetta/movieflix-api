@@ -44,10 +44,33 @@ app.post("/movies", async (req, res) => {
         }
       });
     } catch (error) {
+      console.log(error);
      return res.status(500).send({message: "Falha ao cadastrar um filme"});
     }
 
     res.status(201).send();
+});
+
+app.put("/movies/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  const data = {...req.body};
+
+  const movie = await prisma.movie.findUnique({
+    where: {id}
+  });
+
+  if (!movie) {
+    return res.status(404).send({ message: "Filme nao encontrado."});
+  }
+
+  data.release_date = data.release_date ? new Date(data.release_date) : undefined;
+
+  await prisma.movie.update({
+    where: { id },
+  data: data
+  });
+
+  return res.status(200).send({ messsage: "Dados atulizados com sucesso"});
 });
 
 app.listen(port, () => {
