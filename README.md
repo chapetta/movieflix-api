@@ -1,7 +1,8 @@
 # 🎬 MovieFlix API – Node.js + Express + PostgreSQL + Prisma + Swagger
 
-Este projeto é uma **API RESTful** para gerenciamento de filmes, desenvolvida com **Node.js**, **Express**, **PostgreSQL** e **Prisma ORM**, com documentação utilizando **Swagger**.
-Foi criada para praticar conceitos de **modelagem de banco de dados**, **CRUD com Prisma**, boas práticas de API REST e documentação interativa.
+Este projeto é uma **API RESTful** para gerenciamento de filme, desenvolvida com **node.js**, **Express**, **PostgreSQL** e **Prisma ORM**, com documentação utlizando **Swagger**.
+Foi criada para praticar conceitos de **modelagem de banco de dados**, **CRUD com Prisma**, boas praticas de API REST e documentação interativa.
+
 ---
 
 ## 🚀 Tecnologias Utilizadas
