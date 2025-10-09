@@ -1,1 +1,8 @@
-data/
+node_modules
+data
+pgadmin
+dist
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
